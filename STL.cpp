@@ -15,6 +15,19 @@
 #include<iterator>
 using namespace std;
 
+void FAST_IO() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+}
+
+void IO_FILE() {
+    FAST_IO();
+#ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+#endif
+}
 
 // bool comp(pair<int, int> p1, pair<int, int> p2) {
 // 	if(p1.second < p2.second)
@@ -41,6 +54,8 @@ using namespace std;
 
 
 int main() {
+
+	// IO_FILE();
 
 	// ARRAYS
 
@@ -83,7 +98,7 @@ int main() {
 	// s.insert(s.begin(), str.begin(), str.end());
 
 	// copy(str.begin(), str.begin()+6, back_inserter(s));
-	// copy(char arr[], 4, 3);
+	// str.copy(char arr[], 4(length), 3(position of string));
 
 	// s.resize(10);
 	// str.swap(s);
@@ -132,6 +147,10 @@ int main() {
 	// 	cout << *it << " ";
 	// }
 
+	// vector<int>::reverse_iterator it;
+	// for(it = v.rbegin();it != v.rend(); it++)
+	// 	cout << *it << " ";
+
 	// for(auto it : v) {    // for-each loop
 		// 	cout << it << " ";
 	// }
@@ -166,7 +185,7 @@ int main() {
 	// ls.sort();
 	// ls.unique();
 	// ls.merge(l);
-	// ls.remove(10);   // delete all occurences of 10
+	// ls.remove(10);    // delete all occurences of 10
 	// ls.reverse();
 
 
@@ -330,8 +349,12 @@ int main() {
 	// Descending Order
 	// sort(arr, arr + n, greater<int>());
 
-	// Accirding to User Order
+	// According to User Order
 	// sort(p, p + n, comp);
+
+	// Chech if Array is sorted or not
+	// cout << is_sorted(arr, arr + n) << endl;
+	// cout << is_sorted(arr, arr + n, comp);
 	
 	// Give the no of set bits
 	// cout << __builtin_popcount(7) << endl;
@@ -342,6 +365,11 @@ int main() {
 
 	// Permutation of Strings
 	// string str = "BOOK";
+	// string temp(str);
+
+	// while(prev_permutation(temp.begin(), temp.end())) {
+	// 	cout << temp << endl;
+	// }
 
 	// cout << str << endl;
 	// while(next_permutation(str.begin(), str.end())) {
@@ -355,11 +383,15 @@ int main() {
 	// reverse(arr, arr + n);
 
 	// Search Any Element using Binary Search Algorithm
-	// sort(arr, arr + n);
 	// cout << binary_search(arr, arr + n, 8) << endl;
 
 	// Fill the Array with one number
 	// fill(arr, arr + n, 10);
+
+	// Remove all occurences of a number
+	// it doesn't reduce the size of array
+	// auto it = remove(arr, arr + n, val);
+	// auto it = remove_if(arr, arr + n, comp);
 
 	// Count of any number in Array
 	// cout << count(arr, arr + n, 5) << endl;
@@ -374,6 +406,25 @@ int main() {
 
 	// Sum of all Array elements
 	// cout << accumulate(arr, arr + n, 0) << endl;
+	// cout << accumulate(arr, arr + n, 100, [](int first, int second)
+	// {
+	// 	return first - second;
+	// });
+
+	// Merge two arrys in sorted order
+	// auto it = merge(arr1, arr1 + size, arr2, arr2 + size, new_arr);
+
+	// Replace old value with new value
+	// replace(arr, arr + n, old_val, new_val);
+
+	// Rotate the array i times
+	// rotate(arr, arr + i,arr + n);
+
+	// Find unique element in range
+	// auto it = unique(arr, arr + n);
+
+	// Some set functions:- set_union, set_intersection, set_difference, set_symmetric_difference
+	// auto it = set_union(set1.begin(), set1.end(), set2.begin(), set2.end(), new_set);
 
 
 	// LAMBDA FUNCTION
