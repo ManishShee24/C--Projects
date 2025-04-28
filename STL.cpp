@@ -1,4 +1,6 @@
 #include<iostream>
+#include<cmath>
+#include<assert.h>
 #include<array>
 #include<cstring>
 #include<string.h>
@@ -14,13 +16,14 @@
 #include<algorithm>
 #include<numeric>
 #include<iterator>
+#include<bitset>
 #include<exception>
 using namespace std;
 
 // void FAST_IO() {
 //     ios_base::sync_with_stdio(false);
-//     cin.tie(nullptr);
-//     cout.tie(nullptr);
+//     cin.tie(NULL);
+//     cout.tie(NULL);
 // }
 
 // void IO_FILE() {
@@ -72,6 +75,9 @@ int main() {
 	// string str("Manish Shee");
 	// getline(cin, str);  --> cin >> str;
 
+	// char name[30];
+	// cin.getline(name, 30);
+
 	// cout << "Length of the string-> " << str.length() << endl;  // str.size()
 
 	// str.push_back('M');
@@ -88,18 +94,23 @@ int main() {
 	// str.insert(str.begin()+3, 'n');
 	// str.insert(str.begin()+3, 2, 'n');
 
-	// string s = str;   // s(str)
+	// string s = str;  // s(str)
+	// string s = string(str.rbegin(), str.rend());  // reverse order of str
+	// string s = to_string(n);  // convert a number to string
+
+	// for(int i = 0;i < s.length(); i++)
+	//	num = num*10 + (s[i]-'0'); // convert a string to number 
 	// s.insert(s.begin(), str.begin(), str.end());
 
 	// copy(str.begin(), str.begin()+6, back_inserter(s));
-	// for(int i = 0;chr[i] != '\0'; i++)
+	// for(int i = 0;chr[i] != '\0'; i++)  // char array
 	//	 str += chr[i];
 
 	// s.resize(10);
 	// str.swap(s);
 
 	// s.clear();
-	// s.erase(2, 5);
+	// s.erase(2, 5);   // s.erase(pos, length)
 	// s.erase(s.begin()+2);
 	// s.erase(s.begin()+2, s.begin()+7);
 	// cout << "String is Empty or Not-> " << s.empty() << endl;
@@ -108,11 +119,12 @@ int main() {
 	// s.substr(pos, length)
 
 	// cout << "New String-> " << str.append(s) << endl;   // str += s
-	// str3 = str1 + str2;  --> concatenation
+	// str3 = str1+str2;  --> concatenation
 
 	// cout << "Compare two strings-> " << str.compare(s) << endl;
 
 	// s.replace(1, 5, "ANISH");
+	// s.replace("ABCDE", "ANISH");
 
 	// cout << "\'e\' is found at " << str.find("e") << endl;    // str.find_first_of("e")
 	// cout << "\'e\' is last found at " << str.find_last_of("e") << endl;
@@ -150,6 +162,17 @@ int main() {
 	// for(auto it : v) {    // for-each loop
 		// 	cout << it << " ";
 	// }
+
+	// v.erase(3);   // v.erase(position)
+	// v.erase(v.begin(), v.end());
+
+	// prints forward nth element
+	// vector<int> :: iterator it = v.begin();
+	// advance(it, n);
+
+	// prints backward nth element
+	// vector<int> :: iterator it = v.end();
+	// prev(it, n);
 
 
 	// PAIRS
@@ -244,7 +267,8 @@ int main() {
 	// }
 
 	// Minimum Heap
-	// priority_queue<int, vector<int>, greater<int>> pq2;     // ascending order
+	// priority_queue<int, vector<int>, greater<int>> pq2;
+	// ascending order
 
 
 	// FORWARD LISTS
@@ -318,7 +342,8 @@ int main() {
 
 	// auto it = mp.find(4);
 	// mp.erase(it, mp.end());
-	// cout << (*it).second << endl;
+	// mp.erase(4);
+	// cout << (*it).second << endl;  // it->second
 
 	// mp[4] = 2;   // mp[key] = value
 	// cout << mp[3] << endl;
@@ -340,24 +365,25 @@ int main() {
 
 	// ALGORITHMS
 
-	// sort(arr, arr + n);
+	// sort(arr, arr+n);
 	// sort(v.begin(), v.end());
 
 	// Descending Order
-	// sort(arr, arr + n, greater<int>());
+	// sort(arr, arr+n, greater<int>());
+	// sort(v.rbegin(), v.rend());
 
 	// According to User Order
-	// sort(p, p + n, comp);
-	// stable_sort(p, p + n, comp);
+	// sort(p, p+n, comp);
+	// stable_sort(p, p+n, comp);
 
 	// Check if Array is sorted or not
-	// cout << is_sorted(arr, arr + n) << endl;
-	// cout << is_sorted(arr, arr + n, comp);
+	// cout << is_sorted(arr, arr+n) << endl;
+	// cout << is_sorted(arr, arr+n, comp);
 
 	// Return an iterator if Array is sorted or not
-	// auto it = is_sorted_until(arr, arr + n);
+	// auto it = is_sorted_until(arr, arr+n);
 	// cout << distance(arr, it) << endl;
-	
+
 	// Give the no of set bits
 	// cout << __builtin_popcount(7) << endl;
 	// cout << __builtin_popcountll(26563892949) << endl;
@@ -386,60 +412,63 @@ int main() {
 	// 	cout << str << endl;
 	// }
 
-	// int maximum = *max_element(arr, arr + n);   // Maximum Element
-	// int minimum = *min_element(arr, arr + n);   // Minimum Element
+	// int maximum = *max_element(arr, arr+n);   // Maximum Element
+	// int minimum = *min_element(arr, arr+n);   // Minimum Element
 
 	// find nth smallest element
-	// nth_element(v.begin(), v.begin() + n, v.end());
+	// nth_element(v.begin(), v.begin()+n, v.end());
 	// cout << v[n] << endl;
 
 	// find nth largest element
-	// nth_element(v.begin(), v.begin() + n, v.end(), greater<int>());
+	// nth_element(v.begin(), v.begin()+n, v.end(), greater<int>());
 	// cout << v[n] << endl;
 
 	// Reverse the Array
-	// reverse(arr, arr + n);
+	// reverse(arr, arr+n);
 
 	// Search Any Element using Binary Search Algorithm
-	// cout << binary_search(arr, arr + n, 8) << endl;
+	// cout << binary_search(arr, arr+n, 8) << endl;
 
 	// Fill the Array with one number
-	// fill(arr, arr + n, 10);
+	// fill(arr, arr+n, 10);
 
 	// Remove all occurences of a number
 	// it doesn't reduce the size of array
-	// auto it = remove(arr, arr + n, val);
-	// auto it = remove_if(arr, arr + n, comp);
+	// auto it = remove(arr, arr+n, val);
+	// auto it = remove_if(arr, arr+n, comp);
 
 	// Count of any number in Array
-	// cout << count(arr, arr + n, 5) << endl;
+	// cout << count(arr, arr+n, 5) << endl;
 
 	// Find first occurence of any number
-	// cout << find(arr, arr + n, 5) - arr << endl;
-	// cout << lower_bound(v.begin(), v.end(), 5) - v.begin() << endl;
+	// cout << find(arr, arr+n, 5)-arr << endl;
+	// cout << lower_bound(v.begin(), v.end(), 5)-v.begin() << endl;
 
 	// Find last occurence of any number
-	// cout << find_end(arr, arr + n, arr + 2, arr + 3) - arr << endl;
-	// cout << upper_bound(v.begin(), v.end(), 5) - v.begin() << endl;
+	// cout << find_end(arr, arr+n, arr+2, arr+3)-arr << endl;
+	// cout << upper_bound(v.begin(), v.end(), 5)-v.begin() << endl;
+
+	// Find only condition cases
+	// cout << find_if(arr, arr+n, comp) << endl;
 
 	// Sum of all Array elements
-	// cout << accumulate(arr, arr + n, 0) << endl;
-	// cout << accumulate(arr, arr + n, 100, [](int first, int second)
+	// cout << accumulate(arr, arr+n, 0) << endl;
+	// cout << accumulate(arr, arr+n, 100, [](int first, int second)
 	// {
 	// 	return first - second;
 	// });
 
 	// Merge two arrys in sorted order
-	// auto it = merge(arr1, arr1 + size, arr2, arr2 + size, new_arr);
+	// auto it = merge(arr1, arr1+size, arr2, arr2+size, new_arr);
 
 	// Replace old value with new value
-	// replace(arr, arr + n, old_val, new_val);
+	// replace(arr, arr+n, old_val, new_val);
 
-	// Rotate the array i times
-	// rotate(arr, arr + i, arr + n);
+	// Rotate the array towards left i times
+	// rotate(arr, arr+i, arr+n);
 
 	// Find unique element in range
-	// auto it = unique(arr, arr + n);
+	// auto it = unique(arr, arr+n);
 
 	// Some set functions:- set_union, set_intersection, set_difference, set_symmetric_difference
 	// auto it = set_union(set1.begin(), set1.end(), set2.begin(), set2.end(), new_set);
@@ -448,6 +477,28 @@ int main() {
 	// LAMBDA FUNCTION
 	// int var = 20;   // Local Variable
 	// cout << lambda() << " " << lambda2(var) << endl;
+
+	// Bitset
+	// bitset<N> b1("1100");
+	// bitset<N> b2(6);
+
+	// cout << "ith bit = " << b1[i] << endl;  // Access ith-bit from LSB
+	// cout << "Set all bits to 1: " << b1.set() << endl;
+	// cout << "Set ith bit to 1: " << b1.set(i) << endl;
+	// cout << "Set all bits to 0: " << b1.reset() << endl;
+	// cout << "Set ith bit to 0: " << b1.reset(i) << endl;
+	// cout << "Flip all bits: " << b1.flip() << endl;
+	// cout << "Flip ith bit: " << b1.flip(i) << endl;
+	// cout << "Convert bitset to string: " << b1.to_string() << endl;
+	// cout << "Convert bitset to unsigned long int: " << b1.to_ulong() << endl;
+	// cout << "Convert bitset to unsigned long long int: " << b1.to_ullong() << endl;
+
+	// b1.any() -> True if any bit is 1
+	// b1.none() -> True if all bit is 0
+	// b1.all() -> True if all bit is 1
+	// b1.count() -> Count the number of set bits
+	// b1.size() -> Total number of bits
+	// b1.test(i) -> Returns if ith bit is 1
 
 	return 0;
 }
